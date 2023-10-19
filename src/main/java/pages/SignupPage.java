@@ -74,16 +74,7 @@ public class SignupPage extends BasicPage{
         signMeUpButton().click();
     }
 
-    public void waitUntilErrorMessageWindowShows(){
-        wait.withMessage("Error pop-up doesn't show.")
-                .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.v-snack__wrapper")));
-    }
 
-    public void emailAlreadyExistsMessage(){
-        Assert.assertEquals(driver.findElement(By.cssSelector("div.v-snack__wrapper ul li")).getText(),
-                "E-mail already exists",
-                "Error message should be: 'E-mail already exists'.");
-    }
 
 
     public void AssertUrlForHomePage(){
@@ -93,14 +84,6 @@ public class SignupPage extends BasicPage{
 
     }
 
-    public void verifyImportantMessageIsPresent (){
-        Assert.assertEquals(driver.findElement(By.cssSelector("div[role='document']:nth-child(4) div.v-card__title")).getText(),
-                "IMPORTANT: Verify your account");
-    }
-
-    public void closeImportantMessageDialog(){
-        driver.findElement(By.cssSelector("div[role='document']:nth-child(4) button")).click();
-    }
 
     public void waitToVerifyUrlHomePage(){
         wait.until(ExpectedConditions.urlContains("/home"));

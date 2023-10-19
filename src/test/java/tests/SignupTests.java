@@ -1,5 +1,6 @@
 package tests;
 
+import helpers.RetryAnalyzer;
 import org.testng.annotations.Test;
 
 public class SignupTests extends BasicTest{
@@ -28,8 +29,8 @@ public class SignupTests extends BasicTest{
         signupPage.clearAndTypePassword(password);
         signupPage.clearAndTypeConfirmPassword(confirmPassword);
         signupPage.clickOnSignMeUpButton();
-        signupPage.waitUntilErrorMessageWindowShows();
-        signupPage.emailAlreadyExistsMessage();
+        messagePopUpPage.waitUntilErrorMessageWindowShows();
+        messagePopUpPage.emailAlreadyExistsMessage();
         signupPage.verifySignUpPageUrl();
     }
 
@@ -48,8 +49,8 @@ public class SignupTests extends BasicTest{
         signupPage.clearAndTypeConfirmPassword(confirmPassword);
         signupPage.clickOnSignMeUpButton();
         signupPage.waitToVerifyUrlHomePage();
-        signupPage.verifyImportantMessageIsPresent();
-        signupPage.closeImportantMessageDialog();
+        messagePopUpPage.verifyImportantMessageIsPresent();
+        messagePopUpPage.closeImportantMessageDialog();
         navPage.clickOnLogoutButton();
     }
 }

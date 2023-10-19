@@ -73,6 +73,13 @@ public class NavPage extends BasicPage{
                 .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("button.btnLogout")));
     }
 
+    public WebElement adminButton(){
+        return driver.findElement(By.cssSelector("button:nth-child(6)"));
+    }
+    public void clickOnAdminButton(){
+        adminButton().click();
+    }
+
 
 
 

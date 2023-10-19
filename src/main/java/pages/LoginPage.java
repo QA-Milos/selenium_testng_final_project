@@ -57,20 +57,4 @@ public class LoginPage extends BasicPage{
                 .until(ExpectedConditions.attributeToBe(getPasswordInputField(), "type", "password"));
 
     }
-
-    public void waitUntilErrorMessageWindowShows(){
-        wait.withMessage("Error pop-up doesn't show.")
-                .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.v-snack__wrapper")));
-    }
-
-    public void userDoesNotExistMessage(){
-        Assert.assertEquals(driver.findElement(By.cssSelector("div.v-snack__wrapper ul li")).getText(),
-                "User does not exists",
-                    "Error message should be: 'User does not exists'.");
-    }
-    public void passwordIsWrongMessage(){
-        Assert.assertEquals(driver.findElement(By.cssSelector("div.v-snack__wrapper ul li")).getText(),
-                "Wrong password",
-                "Error message should be: 'Wrong password'.");
-    }
 }

@@ -1,10 +1,11 @@
 package tests;
 
+import helpers.RetryAnalyzer;
 import org.testng.annotations.Test;
 
 public class LoginTests extends BasicTest{
 
-    @Test(priority = 0, retryAnalyzer = RetryAnalyzer.class)
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void visitsTheLoginPage(){
         navPage.clickOnLanguageButton();
         navPage.clickLanguageFromList(0);
@@ -26,8 +27,8 @@ public class LoginTests extends BasicTest{
         loginPage.clearAndTypeEmail(email);
         loginPage.clearAndTypePassword(password);
         loginPage.clickOnLoginButton();
-        loginPage.waitUntilErrorMessageWindowShows();
-        loginPage.userDoesNotExistMessage();
+        messagePopUpPage.waitUntilErrorMessageWindowShows();
+        messagePopUpPage.userDoesNotExistMessage();
         loginPage.verifyUrlForLoginPage();
     }
     @Test(priority = 3, retryAnalyzer = RetryAnalyzer.class)
@@ -38,8 +39,8 @@ public class LoginTests extends BasicTest{
         loginPage.clearAndTypeEmail(email);
         loginPage.clearAndTypePassword(password);
         loginPage.clickOnLoginButton();
-        loginPage.waitUntilErrorMessageWindowShows();
-        loginPage.passwordIsWrongMessage();
+        messagePopUpPage.waitUntilErrorMessageWindowShows();
+        messagePopUpPage.passwordIsWrongMessage();
         loginPage.verifyUrlForLoginPage();
     }
     @Test(priority = 4, retryAnalyzer = RetryAnalyzer.class)
