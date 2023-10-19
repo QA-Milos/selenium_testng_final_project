@@ -57,7 +57,7 @@ public abstract class BasicTest{
             String timestamp = dateFormat.format(now);
 
             Files.copy(file.toPath(), new File(
-                    "C:\\Users\\josif\\OneDrive\\Desktop\\projektins\\selenium_testng_final_project\\screenshots\\" + testName + "_" + timestamp + ".jpg")
+                    "screenshots\\" + testName + "_" + timestamp + ".jpg")
                     .toPath());
         }
     }
