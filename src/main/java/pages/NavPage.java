@@ -59,6 +59,32 @@ public class NavPage extends BasicPage{
             }
         }
     }
+    public String getHeaderText(){
+        return driver.findElement(By.cssSelector("h1.display-2.font-weight-bold")).getText();
+    }
+
+    public void verifyHeaderTextByEnglish(){
+        Assert.assertEquals(getHeaderText(), "Landing",
+                "The expected header text should be 'Landing'");
+    }
+
+    public void verifyHeaderTextBySpanish(){
+        Assert.assertEquals(getHeaderText(), "Página de aterrizaje",
+                "The expected header text should be 'Página de aterrizaje'");
+    }
+
+    public void verifyHeaderTextByChinese(){
+        Assert.assertEquals(getHeaderText(), "首页",
+                "The expected header text should be '首页'");
+    }
+
+    public void verifyHeaderTextByFrench(){
+        Assert.assertEquals(getHeaderText(), "Page d'atterrissage",
+                "The expected header text should be 'Page d'atterrissage'");
+    }
+
+
+
     public WebElement getLogoutButton(){
         return driver.findElement(By.cssSelector("button.btnLogout"));
     }
@@ -80,6 +106,34 @@ public class NavPage extends BasicPage{
         adminButton().click();
     }
 
+    public WebElement getCitiesLink(){
+        return driver.findElement(By.cssSelector("a[href='/admin/cities']"));
+    }
+
+    public void clickOnCitiesLink(){
+        getCitiesLink().click();
+    }
+
+    public WebElement getUsersLink(){
+        return driver.findElement(By.cssSelector("a[href='/admin/cities']"));
+    }
+
+    public void clickOnUsersLink(){
+        getUsersLink().click();
+    }
+
+    public void enterHomeUrl(){
+        driver.navigate().to(baseUrl + "/home");
+    }
+    public void enterProfileUrl(){
+        driver.navigate().to(baseUrl + "/profile");
+    }
+    public void enterAdminCitiesUrl(){
+        driver.navigate().to(baseUrl + "/admin/cities");
+    }
+    public void enterAdminUsersUrl(){
+        driver.navigate().to(baseUrl + "/admin/users");
+    }
 
 
 
